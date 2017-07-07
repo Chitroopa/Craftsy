@@ -1,10 +1,13 @@
 class ProductsController < ApplicationController
+  before_action :authenticate_user!, :except => [:show, :index]
   def index
     @products = Product.all
   end
 
   def show
     @product = Product.find(params[:id])
+    @review = Review.new
+    @user = current_user
   end
 
   def edit

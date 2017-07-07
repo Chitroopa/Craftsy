@@ -1,0 +1,6 @@
+<h1>Edit Review</h1>
+<%= render "new_form", :product=> @product, :review=> @review, :url=> product_review_path(@product, @review)%>
+<hr>
+<p>
+  <%= link_to "Cancel", user_product_path(current_user,@product)%>
+</p>

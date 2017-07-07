@@ -4,9 +4,11 @@ class ProductsController < ApplicationController
   end
 
   def show
+    @product = Product.find(params[:id])
   end
 
   def edit
+    @product = Product.find(params[:id])
   end
 
   def new
@@ -20,7 +22,22 @@ class ProductsController < ApplicationController
     else
       render :new
     end
+  end
 
+  def destroy
+    @product = Product.find(params[:id])
+    @product.destroy
+    redirect_to user_products_path(current_user)
+  end
+
+  def update
+    @product = Product.find(params[:id])
+    if @product.update(product_params)
+      flash[:notice] = "Product updated successfully!"
+      redirect_to  user_product_path(current_user,@product)
+    else
+      render :edit
+    end
   end
 
 private
@@ -28,3 +45,5 @@ private
     params.require(:product).permit(:image,:product_name, :description, :details, :cost, :category, :artist_name, :region)
   end
 end
+
+    # <%= form_for [current_user, @product], url: user_products_path(current_user), html: { multipart: true } do |form| %>

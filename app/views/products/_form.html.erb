@@ -1,0 +1,9 @@
+<%= render "layouts/errors", :object => @product %>
+
+<%= form_for [current_user, @product], url: user_products_path(current_user), html: { multipart: true } do |form| %>
+  <div class="form-group">
+    <%= form.label :image_path %>
+    <%= form.file_field :image_path %>
+  </div>
+  <%= form.submit %>
+<% end %>

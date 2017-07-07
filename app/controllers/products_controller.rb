@@ -48,5 +48,3 @@ private
     params.require(:product).permit(:image,:product_name, :description, :details, :cost, :category, :artist_name, :region)
   end
 end
-
-    # <%= form_for [current_user, @product], url: user_products_path(current_user), html: { multipart: true } do |form| %>

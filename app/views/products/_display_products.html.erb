@@ -1,0 +1,19 @@
+<% if products.any?() %>
+  <div class="row">
+    <% products.each do |product| %>
+      <div class="card col-md-4">
+        <%=  link_to image_tag(product.image.url(:medium)), user_product_path(product.user, product), :class=>"image-display"%>
+
+        <div class="card-block">
+          <h4 class="card-title"><%= product.product_name %></h4>
+          <p class="card-text">
+            <%= product.description%>
+            $<%= product.cost  %>
+          </p>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% else %>
+  <h4>No products Yet</h4>
+<% end %>

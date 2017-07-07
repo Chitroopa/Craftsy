@@ -3,3 +3,5 @@
 <ul class="breadcrumb">
     <li><%= link_to "Add product", new_user_product_path(current_user) %></li>
 </ul>
+
+ <%= render "products/display_products", :products => @products %>

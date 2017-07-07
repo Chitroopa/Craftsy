@@ -16,3 +16,11 @@
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+.card {
+  border: 1px solid lightgray;
+  margin: 10px 10px 10px 10px;
+  .image-display {
+    height: 20px;
+  }
+}
